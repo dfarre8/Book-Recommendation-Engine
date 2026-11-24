@@ -8,7 +8,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
 
-# 1. Configuration & Paths
+# Configuration & Paths
 RAW_DATA_PATH = "data/books_data.csv"  # Update to match your exact CSV filename
 CLEAN_DATA_PATH = "data/books_cleaned.csv"
 MODELS_DIR = "models"
