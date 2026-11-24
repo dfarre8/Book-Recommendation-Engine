@@ -80,7 +80,10 @@ def load_and_clean_data(filepath):
     df["soup"] = df.apply(create_soup, axis=1)
 
     print(f"Cleaned dataset contains {len(df):,} books.")
-    df.to_csv(CLEAN_DATA_PATH, index=False)
+    # Save only the columns needed by app.py and generate_charts.py to keep CSV size under 25 MB
+    export_cols = ["book_title", "book_authors", "book_desc", "genre_list", "book_rating", "book_pages", "image_url"]
+    available_cols = [col for col in export_cols if col in df.columns]
+    df[available_cols].to_csv(CLEAN_DATA_PATH, index=False)
     return df
 
 
